@@ -1,24 +1,87 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column   | Type    | Options     |
+| -------- | ------- | ----------- |
+| email    | string  | null: false |
+| password | string  | null: false |
+| name     | string  | null: false |
+| birhtday | integer | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :purchase
+- has_many :comments
+- has_many :items
+- has_one :pays
 
-* Configuration
+## purchase table
 
-* Database creation
+| Column   | Type   | Options           |
+| -------- | ------ | ----------------- |
+| user_id  | string | foreign_key: true |
+| items_id | string | foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :users
+- has_one :address
 
-* Services (job queues, cache servers, search engines, etc.)
+## address table
 
-* Deployment instructions
+| Column       | Type   | Options     |
+| ------------ | ------ | ----------- |
+| user_id      | string | null: false |
+| address      | string | null: false |
+| phone_number | string | null: false |
 
-* ...
+### Association
+
+- belongs_to :purchase
+
+## comments table
+
+| Column   | Type   | Options           |
+| -------- | ------ | ----------------- |
+| text     | string | null: false       |
+| user_id  | string | foreign_key: true |
+| items_id | string | foreign_key: true |
+
+### Association
+
+- belong_to :users
+- belong_to :items
+
+## items table
+
+| Column           | Type    | Options           |
+| ---------------- | ------- | ----------------- |
+| image            | string  | null: false       |
+| text             | text    | null: false       |
+| user_id          | string  | foreign_key: true |
+| price            | string  | null: false       |
+| category         | integer | foreign_key: true |
+| states           | integer | foreign_key: true |
+| shipping_charges | integer | null: false       |
+| shipping_area    | integer | foreign_key: true |
+| shipping_date    | integer | foreign_key: true |
+
+### Association
+
+- belong_to :users
+- belong_to :purchase
+- has_many :comments
+
+## pays table
+
+| Column          | Type    | Options           |
+| --------------- | ------- | ----------------- |
+| user_id         | string  | foreign_key: true |
+| card_number     | string  | null: false       |
+| security_number | string  | null: false       |
+| expiration      | integer | null: false       |
+
+### Association
+
+- belong_to users
