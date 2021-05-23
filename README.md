@@ -19,7 +19,7 @@
 - has_many :comments
 - has_many :items
 
-## purchase table
+## purchases table
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
@@ -58,7 +58,7 @@
 | category_id        | integer    | null: false       |
 | state_id           | integer    | null: false       |
 | shipping_charge_id | integer    | null: false       |
-| shipping_area_id   | integer    | null: false       |
+| prefectures_id     | integer    | null: false       |
 | shipping_date_id   | integer    | null: false       |
 | product_name       | string     | null: false       |
 
@@ -68,12 +68,13 @@
 - has_one :purchase
 - has_many :comments
 
-## address table
+## addresses table
 
 | Column         | Type       | Options           |
 | -------------- | ---------- | ----------------- |
 | postal_code    | string     | null: false       |
 | prefectures_id | integer    | null: false       |
+| municipality   | string     | null: false       |
 | address        | string     | null: false       |
 | building_name  | string     |                   |
 | phone_number   | string     | null: false       |
