@@ -15,21 +15,21 @@
 
 ### Association
 
-- has_many :purchase
+- has_many :purchases
 - has_many :comments
 - has_many :items
 - has_one :pays
 
 ## purchase table
 
-| Column   | Type       | Options           |
-| -------- | ---------- | ----------------- |
-| user     | references | foreign_key: true |
-| items_id | string     | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_one :address
 
 ### Association
@@ -38,16 +38,16 @@
 
 ## comments table
 
-| Column   | Type       | Options           |
-| -------- | ---------- | ----------------- |
-| text     | string     | null: false       |
-| user     | references | foreign_key: true |
-| items_id | string     | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| text   | string     | null: false       |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
-- belong_to :users
-- belong_to :items
+- belong_to :user
+- belong_to :item
 
 ## items table
 
@@ -65,20 +65,19 @@
 
 ### Association
 
-- belong_to :users
+- belong_to :user
 - belong_to :purchase
 - has_many :comments
 
 ## address table
 
-| Column         | Type       | Options           |
-| -------------- | ---------- | ----------------- |
-| postal_code    | references | foreign_key: true |
-| prefectures    | string     | foreign_key: true |
-| municipalities | references | foreign_key: true |
-| address        | string     | foreign_key: true |
-| building_name  | references | foreign_key: true |
-| phone_number   | string     | foreign_key: true |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| postal_code   | integer | null: false |
+| prefectures   | string  | null: false |
+| address       | string  | null: false |
+| building_name | string  | null: false |
+| phone_number  | integer | null: false |
 
 ### Association
 
