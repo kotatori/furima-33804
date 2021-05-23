@@ -11,7 +11,7 @@
 | last_name          | string | null: false               |
 | ruby_first_name    | string | null: false               |
 | ruby_last_name     | string | null: false               |
-| birhtday           | date   | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -30,10 +30,7 @@
 
 - belongs_to :user
 - has_one :address
-
-### Association
-
-- belongs_to :purchase
+- has_one :item
 
 ## comments table
 
@@ -58,7 +55,7 @@
 | category_id        | integer    | null: false       |
 | state_id           | integer    | null: false       |
 | shipping_charge_id | integer    | null: false       |
-| prefectures_id     | integer    | null: false       |
+| prefecture_id      | integer    | null: false       |
 | shipping_date_id   | integer    | null: false       |
 | product_name       | string     | null: false       |
 
