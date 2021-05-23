@@ -18,7 +18,6 @@
 - has_many :purchases
 - has_many :comments
 - has_many :items
-- has_one :pays
 
 ## purchase table
 
@@ -66,18 +65,19 @@
 ### Association
 
 - belong_to :user
-- belong_to :purchase
+- has_one :purchase
 - has_many :comments
 
 ## address table
 
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| postal_code   | integer | null: false |
-| prefectures   | string  | null: false |
-| address       | string  | null: false |
-| building_name | string  | null: false |
-| phone_number  | integer | null: false |
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| postal_code    | string     | null: false       |
+| prefectures_id | integer    | null: false       |
+| address        | string     | null: false       |
+| building_name  | string     |                   |
+| phone_number   | string     | null: false       |
+| purchase       | references | foreign_key: true |
 
 ### Association
 
