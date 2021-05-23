@@ -62,21 +62,21 @@
 ### Association
 
 - belong_to :user
-- has_many :purchase
+- has_one :purchase
 - has_many :comments
 
 ## addresses table
 
-| Column         | Type       | Options           |
-| -------------- | ---------- | ----------------- |
-| postal_code    | string     | null: false       |
-| prefectures_id | integer    | null: false       |
-| municipality   | string     | null: false       |
-| address        | string     | null: false       |
-| building_name  | string     |                   |
-| phone_number   | string     | null: false       |
-| purchase       | references | foreign_key: true |
+| Column        | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| postal_code   | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| municipality  | string     | null: false       |
+| address       | string     | null: false       |
+| building_name | string     |                   |
+| phone_number  | string     | null: false       |
+| purchase      | references | foreign_key: true |
 
 ### Association
 
-- has_one :purchase
+- belongs_to :purchase
