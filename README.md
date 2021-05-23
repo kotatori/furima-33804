@@ -30,7 +30,7 @@
 
 - belongs_to :user
 - has_one :address
-- has_one :item
+- belongs_to :item
 
 ## comments table
 
@@ -62,7 +62,7 @@
 ### Association
 
 - belong_to :user
-- has_one :purchase
+- has_many :purchase
 - has_many :comments
 
 ## addresses table
@@ -79,4 +79,4 @@
 
 ### Association
 
-- belong_to :purchase
+- has_one :purchase
