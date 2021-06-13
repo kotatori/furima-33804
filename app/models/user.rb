@@ -17,8 +17,8 @@ class User < ApplicationRecord
     validates :first_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/, message: 'Last name kana First name kana Full-width katakana characters' } do
-    validates :last_name_kana
-    validates :first_name_kana
+  with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/, message: 'Rudy last name  Rudy first name Full-width katakana characters' } do
+    validates :rudy_last_name
+    validates :rudy_first_name
   end
 end
