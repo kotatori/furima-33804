@@ -92,38 +92,38 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("First name Last name First nam Full-width characters")
       end
-      it 'last_name_kanaが空では登録できない' do
+      it 'rudy_last_nameが空では登録できない' do
         @user.rudy_last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana can't be blank")
+        expect(@user.errors.full_messages).to include("Rudy last name can't be blank")
       end
       it 'first_name_kanaが空では登録できない' do
         @user.rudy_first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana can't be blank")
+        expect(@user.errors.full_messages).to include("Rudy first name can't be blank")
       end
 
       it 'ユーザーlast_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
         @user.rudy_last_name = 'aa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana Last name kana First name kana Full-width katakana characters")
+        expect(@user.errors.full_messages).to include("Rudy last name Last name kana First name kana Full-width katakana characters")
       end
-      it 'ユーザーfirst_name_kanaのフリガナは、全角（カタカナ）での入力が必須であること' do
+      it 'ユーザーrudy_first_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
         @user.rudy_first_name = 'aa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana Last name kana First name kana Full-width katakana characters")
+        expect(@user.errors.full_messages).to include("Rudy first name Last name kana First name kana Full-width katakana characters")
       end
 
-      it 'last_name_kanaはカタカナ以外の全角文字だと登録できないこと' do
+      it 'rudy_last_nameはカタカナ以外の全角文字だと登録できないこと' do
         @user.rudy_last_name = "あ阿"
         @user.valid?
-        expect(@user.errors[:last_name_kana]).to include("Last name kana First name kana Full-width katakana characters")
+        expect(@user.errors[:rudy_last_name]).to include("Last name kana First name kana Full-width katakana characters")
       end
 
-      it 'first_name_kanaはカタカナ以外の全角文字だと登録できないこと' do
+      it 'rudy_first_nameはカタカナ以外の全角文字だと登録できないこと' do
         @user.rudy_first_name = "あ阿"
         @user.valid?
-        expect(@user.errors[:first_name_kana]).to include("Last name kana First name kana Full-width katakana characters")
+        expect(@user.errors[:rudy_first_name]).to include("Last name kana First name kana Full-width katakana characters")
       end
 
       it 'birthdayが空では登録できない' do
