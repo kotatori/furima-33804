@@ -97,18 +97,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Rudy last name can't be blank")
       end
-      it 'first_name_kanaが空では登録できない' do
+      it 'rudy_first_nameが空では登録できない' do
         @user.rudy_first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("Rudy first name can't be blank")
       end
 
-      it 'ユーザーlast_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
+      it 'rudy_last_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
         @user.rudy_last_name = 'aa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Rudy last name Last name kana First name kana Full-width katakana characters")
       end
-      it 'ユーザーrudy_first_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
+      it 'rudy_first_nameのフリガナは、全角（カタカナ）での入力が必須であること' do
         @user.rudy_first_name = 'aa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Rudy first name Last name kana First name kana Full-width katakana characters")
