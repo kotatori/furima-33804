@@ -46,7 +46,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
       it 'prefectureが未選択だと出品できない' do
-        @item.prefecture = 0
+        @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
       end

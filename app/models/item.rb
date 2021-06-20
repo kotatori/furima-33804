@@ -5,10 +5,10 @@ class Item < ApplicationRecord
   # has_one :purchaser
   has_one_attached :image
 
-  belongs_to :category_id
-  belongs_to :prefecture_id
-  belongs_to :shipping_charge_id
-  belongs_to :shipping_date_id
+  belongs_to :category
+  belongs_to :prefecture
+  belongs_to :shipping_charge
+  belongs_to :shipping_date
 
   with_options presence: true do
     validates :image
