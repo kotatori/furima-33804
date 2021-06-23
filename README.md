@@ -19,7 +19,7 @@
 - has_many :comments
 - has_many :items
 
-## purchases table
+## orders table
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
@@ -75,7 +75,7 @@
 | address       | string     | null: false       |
 | building_name | string     |                   |
 | phone_number  | string     | null: false       |
-| purchase      | references | foreign_key: true |
+| order         | references | foreign_key: true |
 
 ### Association
 
