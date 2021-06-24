@@ -1,2 +1,0 @@
-class CreateOrder < ApplicationRecord
-end

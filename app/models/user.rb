@@ -21,4 +21,8 @@ class User < ApplicationRecord
     validates :rudy_last_name
     validates :rudy_first_name
   end
+
+  has_many :items
+  has_many :orders
+
 end
